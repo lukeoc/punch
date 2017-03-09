@@ -3,5 +3,5 @@ class Consumer < ApplicationRecord
   has_many :cards
   has_many :merchants, through: :cards
 
-  has_secure_password
+  # has_secure_password
 end

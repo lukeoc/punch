@@ -1,6 +1,6 @@
 class CardsController < ApplicationController
   def index
-    @consumer = Consumer.find(params[:id])
+    @consumer = @current_consumer
     @cards = @consumer.cards
   end
 end
