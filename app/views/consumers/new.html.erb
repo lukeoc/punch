@@ -1,0 +1,15 @@
+<p>sign up</p>
+
+<%= form_tag "/consumers", method: :post do %>
+<div>
+  <%= text_field_tag :name, nil, placeholder: "name" %>
+</div>
+  <%= text_field_tag :email, nil, placeholder: "email" %>
+</div>
+  <%= text_field_tag :phone, nil, placeholder: "phone" %>
+</div>
+<div>
+  <%= password_field_tag :password, nil, placeholder: "password" %>
+</div>
+<%= submit_tag "sign up" %>
+  <% end %>

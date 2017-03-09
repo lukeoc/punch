@@ -1,0 +1,11 @@
+<p>all of <%= @consumer.name %>'s cards</p>
+
+<%= @cards.each do |card| %>
+<div>
+  <span>
+    <p><%= card.merchant.name %></p>
+    <p><%= card.total %></p>
+  </span>
+</div>
+<br>
+<% end %>
