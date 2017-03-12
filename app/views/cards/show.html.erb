@@ -1,0 +1,13 @@
+<div ng-app="app">
+  <div ng-controller="cardsCtrl" ng-init="setup(<%= @card.id %>)">
+    <div>
+      merchant: {{card.merchant_name}}
+      total: {{card.total}}
+      level: {{card.level}}
+    </div>
+    <div ng-repeat="transaction in card.transactions">
+      amount: {{transaction.amount}}
+      date: {{transaction.created_at}}
+    </div>
+  </div>
+</div>

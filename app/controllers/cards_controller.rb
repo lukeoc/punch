@@ -1,6 +1,11 @@
 class CardsController < ApplicationController
   def index
-    # @consumer = @current_consumer
-  #   @cards = @consumer.cards
+    @consumer = Consumer.find_by(email: "luke@luke.com")
+    @cards = @consumer.cards
   end
+
+  def show
+    @card = Card.find(params[:id])
+  end
+
 end

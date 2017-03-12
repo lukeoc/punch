@@ -1,0 +1,14 @@
+<div ng-app="app">
+  <div ng-controller="consumersCtrl" ng-init="setup(<%= @consumer.id %>)">
+    <div>
+      {{consumer.name}}
+      <div ng-repeat="card in cards">
+        merchant: {{card.merchant_name}}
+        total: {{card.total}}
+        level: {{card.level}}
+        {{card.redeemable}}
+        <a href="/cards/{{card.id}}">view</a>
+      </div>
+    </div>
+  </div>
+</div>

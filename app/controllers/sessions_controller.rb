@@ -5,9 +5,9 @@ class SessionsController < ApplicationController
   def create
     consumer = Consumer.find_by(email: params[:email])
     if consumer && consumer.authenticate(params[:password])
-      session[:consumer_id] = consumer.id
+      login(consumer)
       flash[:success] = 'successfully logged in!'
-      redirect_to "/"
+      redirect_to "/consumers/#{consumer.id}/cards"
     else
       flash[:warning] = 'what you have asked for is not possible sorry man'
       redirect_to "/login"
