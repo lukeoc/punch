@@ -54,4 +54,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # added gems
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'plaid'
+gem 'materialize-sass'
+gem 'material_icons'

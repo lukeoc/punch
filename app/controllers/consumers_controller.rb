@@ -28,4 +28,9 @@ class ConsumersController < ApplicationController
     render "cards.html.erb"
   end
 
+  def transactions
+    @consumer = Consumer.find(params[:id])
+    render "transactions.html.erb"
+  end
+
 end

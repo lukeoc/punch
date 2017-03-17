@@ -1,14 +1,16 @@
-<div ng-app="app">
-  <div ng-controller="consumersCtrl" ng-init="setup(<%= @consumer.id %>)">
-    <div>
-      {{consumer.name}}
-      <div ng-repeat="card in cards">
+<div class="row" ng-app="app" ng-controller="consumersCtrl" ng-init="setup(<%= @consumer.id %>)">
+  <!-- <h1 class="">{{consumer.name}}</h1> -->
+  <div class="amber lighten-3 col s3">
+    <div class="row" ng-repeat="card in cards">
+      <div class="card-panel amber lighten-5 container col s12">
         merchant: {{card.merchant_name}}
         total: {{card.total}}
         level: {{card.level}}
         {{card.redeemable}}
         <a href="/cards/{{card.id}}">view</a>
       </div>
-    </div>
+    </div>    
   </div>
+
+  <div class="col s9 amber">non card part of page</div>
 </div>

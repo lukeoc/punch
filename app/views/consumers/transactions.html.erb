@@ -1,0 +1,10 @@
+<div ng-app="app">
+  <div ng-controller="consumersCtrl" ng-init="setup(<%= @consumer.id %>)">
+    <p>{{consumer.name}}'s transactions</p>
+    <br>
+    <div ng-repeat="transaction in transactions">
+      merchant:{{transaction.merchant_id}}
+      amount:{{transaction.amount}}
+    </div>
+  </div>
+</div>

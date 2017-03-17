@@ -1,6 +1,6 @@
 class CardsController < ApplicationController
   def index
-    @consumer = Consumer.find_by(email: "luke@luke.com")
+    @consumer = Consumer.find_by(email: "luke@luke.com") #change this to identify current user
     @cards = @consumer.cards
   end
 

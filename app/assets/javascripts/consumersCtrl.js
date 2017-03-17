@@ -3,10 +3,13 @@
 
   angular.module("app").controller("consumersCtrl", function($scope, $http){
 
-    $scope.setup = function(userId) {
-      $http.get("/api/v1/consumers/" + userId + "/cards.json").then(function(response){
+    $scope.message = "hello world";
+
+    $scope.setup = function(consumerId) {
+      $http.get("/api/v1/consumers/" + consumerId + "/cards.json").then(function(response){
         $scope.consumer = response.data;
         $scope.cards = response.data.cards;
+        $scope.transactions = response.data.transactions;
       });
     };
 

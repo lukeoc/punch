@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post "/consumers" => "consumers#create"
   get "/consumers/:id" => "consumers#show"
   get "/consumers/:id/cards" => "consumers#cards"
+  get "/consumers/:id/transactions" => "consumers#transactions"
 
   get "/login" => "sessions#new"
   post "/sessions" => "sessions#create"
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
       get "/cards/:id" => "cards#show"
 
       get "/consumers" => "consumers#index"
+      get "/consumers/:id" => "consumers#show"
       get "/consumers/:id/cards" => "consumers#cards"
     end
   end
