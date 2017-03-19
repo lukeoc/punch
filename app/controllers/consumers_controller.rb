@@ -24,7 +24,7 @@ class ConsumersController < ApplicationController
   end
 
   def cards
-    @consumer = Consumer.find(params[:id])
+    @consumer = Consumer.find(params[:id]) || @current_consumer
     render "cards.html.erb"
   end
 

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get "/" => "cards#index"
+  get "/" => "consumers#cards"
   get "/cards/:id" => "cards#show"
 
   get "/signup" => "consumers#new"
