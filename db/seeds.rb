@@ -89,15 +89,18 @@ end
 
 cards = Card.all
 
-
-100.times do
+cards.each do |card|
+20.times do
   Transaction.create([
   {
-  consumer_id: consumers.sample.id,
-  merchant_id: merchants.sample.id,
-  card_id: cards.sample.id,
+  consumer_id: card.consumer_id,
+  card_id: card.id,
+  merchant_id: card.merchant_id,
   amount: rand(0.0..10.0).round(2)
   }
 ])
 end
+end
+
+
 

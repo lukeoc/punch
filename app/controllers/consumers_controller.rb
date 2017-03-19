@@ -12,7 +12,7 @@ class ConsumersController < ApplicationController
     if consumer.save
       session[:user_id] = consumer.id
       flash[:success] = "welcome to punch!"
-      redirect_to "/"
+      redirect_to "/consumers/#{consumer.id}/cards"
     else
       flash[:warning] = "oops. something didn't work. give it another try."
       redirect_to "/signup"
@@ -24,7 +24,7 @@ class ConsumersController < ApplicationController
   end
 
   def cards
-    @consumer = Consumer.find(params[:id]) || @current_consumer
+    @consumer = Consumer.find(params[:id])
     render "cards.html.erb"
   end
 

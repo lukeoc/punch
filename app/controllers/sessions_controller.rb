@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+    render "new.html.erb"
   end
 
   def create
@@ -12,5 +13,11 @@ class SessionsController < ApplicationController
       flash[:warning] = 'what you have asked for is not possible sorry man'
       redirect_to "/login"
     end
+  end
+
+  def destroy
+    session[:consumer_id] = nil
+    flash[:success] = 'Successfully logged out!'
+    redirect_to '/login'
   end
 end
