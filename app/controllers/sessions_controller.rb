@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if consumer && consumer.authenticate(params[:password])
       login(consumer)
       flash[:success] = 'successfully logged in!'
-      redirect_to "/consumers/#{consumer.id}/cards"
+      redirect_to "/consumers/#{consumer.id}"
     else
       flash[:warning] = 'what you have asked for is not possible sorry man'
       redirect_to "/login"

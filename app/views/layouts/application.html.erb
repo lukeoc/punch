@@ -10,22 +10,24 @@
   </head>
 
   <ul id="dropdown1" class="dropdown-content">
-  
-  <li><a href="#!"></a></li>
-  <li><a href="#!">two</a></li>
+  <%if current_consumer %>
+  <li><a href="/logout">logout</a></li>
   <li class="divider"></li>
-  <li><a href="#!">three</a></li>
+  <li><a href="#!">settings</a></li>
+  <% end %>
 </ul>
 
  <nav>
     <div class="nav-wrapper">
       <a href="#!" class="brand-logo"><i class="material-icons">free_breakfast</i>punch</a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="#"><i class="material-icons">view_module</i></a></li>
-        <li><a href="#"><i class="material-icons">refresh</i></a></li>
-        <li><a href="#"><i class="material-icons">more_vert</i></a></li>
-        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">
-
+        <li>
+          <a class="dropdown-button" href="#!" data-activates="dropdown1">
+            <%if current_consumer %>
+            <%= current_consumer.name %>
+            <% else %>
+            <%= "signup" %>
+            <% end %>
           <i class="material-icons right">arrow_drop_down</i></a>
         </li>
       </ul>
