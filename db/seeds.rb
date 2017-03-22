@@ -58,19 +58,19 @@ sightglass = Merchant.create(
   name: "Sightglass",
   email: "sightglass@sightglass.com",
   reward_name: "free coffee",
-  reward_threshold: 30)
+  reward_threshold: 75)
 
 tacko = Merchant.create(
   name: "Tacko",
   email: "tacko@tacko.com",
   reward_name: "free taco",
-  reward_threshold: 33)
+  reward_threshold: 50)
 
 monaghans = Merchant.create(
   name: "Monaghans",
   email: "monaghans@monaghans.com",
   reward_name: "free brewski",
-  reward_threshold: 50)
+  reward_threshold: 150)
 
 merchants = [bobs_donuts, cafe_brainwash, sightglass, tacko, monaghans]
 
@@ -81,8 +81,8 @@ consumers.each do |consumer|
     Card.create(
       consumer_id: consumer.id,
       merchant_id: merchants[n].id,
-      total: 10,
-      level: 1)
+      total: 0,
+      level: rand(1..10))
     n+=1
   end
 end
@@ -90,7 +90,7 @@ end
 cards = Card.all
 
 cards.each do |card|
-20.times do
+10.times do
   Transaction.create([
   {
   consumer_id: card.consumer_id,

@@ -8,7 +8,7 @@ json.array! (@consumers) do |consumer|
     json.consumer_id card.consumer_id
     json.merchant_id card.merchant_id
     json.merchant_name card.merchant.name
-    json.total card.total
+    json.total card.current_total.round(2)
     json.level card.level
     json.redeemable card.redeemable
     json.transactions card.transactions.each do |transaction|

@@ -2,7 +2,9 @@ json.id @card.id
 json.consumer_id @card.consumer_id
 json.merchant_id @card.merchant_id
 json.merchant_name @card.merchant.name
-json.total @card.total
+json.reward_threshold @card.merchant.reward_threshold
+json.reward_name @card.merchant.reward_name
+json.total number_with_precision(@card.current_total.round(2), precision: 2)
 json.level @card.level
 json.redeemable @card.redeemable
 json.transactions @card.transactions.each do |transaction|

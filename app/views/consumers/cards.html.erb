@@ -1,25 +1,30 @@
 <div class="row" ng-app="app" ng-controller="consumersCtrl" ng-init="setup(<%= @consumer.id %>)">
 
-  <div class="red lighten-4 col s3">
+  <!-- SIDE BAR START -->
+  <div class="red lighten-4 col s12 m12 l3" ng-class="functionName(2)">
     <div class="input-field">
-      <input id="search" type="search" required>
+      <input ng-model="cardFilter" id="search" type="search" required>
       <label class="label-icon" for="search"><i class="material-icons">search</i></label>
       <i class="material-icons">close</i>
     </div>
-    <div class="row" ng-repeat="card in cards">
+    <div class="row" ng-repeat="card in cards | filter: cardFilter">
       <div class="card-panel hoverable container col s12 red lighten-5" ng-click="showCard(card)">
-        <div>{{card.merchant_name}}</div><br>
-        <div>level: {{card.level}}</div> <br>
-        <div>total: {{card.total}}</div>
-        <div>{{card.redeemable}}</div>
-        <div class="right-align"><a href="/cards/{{card.id}}">view</a></div>
+        <div>{{card.merchant_name}}</div>
+        <div>level: {{card.level}}</div>
+        <div>total: ${{card.total}} / ${{card.reward_threshold}}</div>
+        <div class="reward-name red">{{card.reward_name}}</div>
       </div>
     </div>    
   </div>
+  <!-- SIDE BAR END -->
 
-  <div class="col s9">
+  <!-- MAIN CONTENT START -->
+  <div class="col s12 m12 l9" ng-hide="hideCard">
     <div class ="container">
       <div>{{card.merchant_name}}</div>
+      <div>level: {{card.level}}</div>
+      <div>total: ${{card.total}} / ${{card.reward_threshold}}</div>
+      <div>reward: {{card.reward_name}}</div>
       <table class="striped">
         <thead>
           <tr>
@@ -37,4 +42,5 @@
       </table>
     </div>
   </div>
+  <!-- MAIN CONTENT END -->
 </div>

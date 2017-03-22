@@ -1,5 +1,6 @@
 <div ng-app="app">
   <div ng-controller="cardsCtrl" ng-init="setup(<%= @card.id %>)">
+    <div><%= @current_total %></div>
     <div>
       merchant: {{card.merchant_name}}
       total: {{card.total}}

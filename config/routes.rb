@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   post "/consumers" => "consumers#create"
   get "/consumers/:id" => "consumers#cards"
   get "/consumers/:id/transactions" => "consumers#transactions"
+  get "/settings" => "consumers#settings"
 
   get "/login" => "sessions#new"
   post "/sessions" => "sessions#create"
