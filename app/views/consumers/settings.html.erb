@@ -5,16 +5,21 @@
 <button id="link-button">Open Link</button>
 
 <script>
+window.onload = function(){
+  console.log('<%="#{ENV['PLAID_PUBLIC']}"%>');
+};
+
 var linkHandler = Plaid.create({
- env: 'sandbox',
+ env: 'development',
  // env: 'tartan',
- clientName: 'Plaid Sandbox',
+ clientName: 'does this even matter',
  // Replace '[PUBLIC_KEY]' with your own `public_key`
- key: 'ba9be976d7a58ec9d5387bc31a2cf5',
- product: ['auth'],
- // product: 'connect',
+ key: 'ENV[]',
+ // product: ['auth'],
+ product: 'connect',
  onSuccess: function(public_token, metadata) {
   console.log(public_token, metadata);
+
    // Send the public_token to your app server here.
    // The metadata object contains info about the
    // institution the user selected and the

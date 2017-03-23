@@ -7,7 +7,8 @@
       $http.get("/api/v1/consumers/" + consumerId).then(function(response){
         $scope.consumer = response.data;
         $scope.cards = response.data.cards;
-        $scope.hideCard = true;
+        $scope.showCardList = true;
+        $scope.showCardInfo = false;
         // $scope.transactions = response.data.transactions;
       });
     };
@@ -17,7 +18,7 @@
         $scope.card = response.data;
         $scope.transactions = response.data.transactions;
         $scope.merchant = response.data.merchant;
-        $scope.hideCard = !$scope.hideCard;
+        $scope.showCardInfo = !$scope.showCardInfo;
       });
     };
 
@@ -28,3 +29,4 @@
 
   });
 }());
+
