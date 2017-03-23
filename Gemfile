@@ -55,6 +55,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # added gems
-gem 'plaid-legacy'
+gem 'plaid', "2.2.0"
 gem 'materialize-sass'
 gem 'material_icons'

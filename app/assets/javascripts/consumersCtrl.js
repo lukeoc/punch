@@ -1,7 +1,7 @@
 (function() {
   "use strict";
 
-  angular.module("app").controller("consumersCtrl", function($scope, $http){
+  angular.module("app", ['ui.materialize']).controller("consumersCtrl", function($scope, $http){
 
     $scope.setup = function(consumerId) {
       $http.get("/api/v1/consumers/" + consumerId).then(function(response){

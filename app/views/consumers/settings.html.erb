@@ -14,9 +14,9 @@ var linkHandler = Plaid.create({
  // env: 'tartan',
  clientName: 'does this even matter',
  // Replace '[PUBLIC_KEY]' with your own `public_key`
- key: 'ENV[]',
- // product: ['auth'],
- product: 'connect',
+ key: "<%= ENV['PLAID_PUBLIC_KEY']%>",
+ product: ['auth'],
+ // product: 'connect',
  onSuccess: function(public_token, metadata) {
   console.log(public_token, metadata);
 
