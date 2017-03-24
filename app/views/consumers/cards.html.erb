@@ -9,24 +9,14 @@
     </div>
 
     <div class="row" ng-repeat="card in cards | filter: cardFilter">
-
-
-
-
-
-
       <div class="card-panel hoverable container col s12 red lighten-5" ng-click="showCard(card)">
-
-      
-
         <div>{{card.merchant_name}}</div>
         <div>level: {{card.level}}</div>
         <div>total: ${{card.total}} / ${{card.reward_threshold}}</div>
         <div class="reward-name red">{{card.reward_name}}</div>
-
         <ul class="collapsible" data-collapsible="accordion">
           <li>
-            <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
+            <div class="reward-name red collapsible-header">{{card.reward_name}}</div>
             <div class="collapsible-body">
              <table class="striped">
               <thead>
@@ -35,7 +25,6 @@
                   <th data-field="amount">amount</th>
                 </tr>
               </thead>
-
               <tbody>
                 <tr ng-repeat="transaction in transactions">
                   <td>{{transaction.created_at | date:'medium'}}</td>
@@ -46,18 +35,13 @@
           </div>
         </li>
       </ul>
-
     </div>
-
-
   </div>
-
-
 </div>
 <!-- SIDE BAR END -->
 
 <!-- MAIN CONTENT START -->
-<div class="col s12 m12 l9" ng-if="showCardInfo">
+<div class="hide-on-med-and-down col l9" ng-if="showCardInfo">
   <div class ="container">
     <div>{{card.merchant_name}}</div>
     <div>level: {{card.level}}</div>

@@ -90,7 +90,7 @@ end
 cards = Card.all
 
 cards.each do |card|
-10.times do
+rand(2..10).times do
   Transaction.create([
   {
   consumer_id: card.consumer_id,
