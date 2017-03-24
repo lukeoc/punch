@@ -9,6 +9,7 @@ json.cards @consumer.cards.each do |card|
   json.merchant_name card.merchant.name
   json.total number_with_precision(card.current_total.round(2).to_f, precision: 2)
   json.level card.level
+  json.reward_progress card.reward_progress
   json.redeemable card.redeemable
 end
 json.transactions @consumer.transactions.each do |transaction|

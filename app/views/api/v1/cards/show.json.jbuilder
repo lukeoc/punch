@@ -6,6 +6,7 @@ json.reward_threshold @card.merchant.reward_threshold
 json.reward_name @card.merchant.reward_name
 json.total number_with_precision(@card.current_total.round(2), precision: 2)
 json.level @card.level
+json.reward_progress @card.reward_progress
 json.redeemable @card.redeemable
 json.transactions @card.transactions.each do |transaction|
   json.id transaction.id

@@ -22,6 +22,8 @@
       });
     };
 
+    $scope.orderAttribute = "";
+
     $scope.functionName = function(progress) {
       // jquery to set a class on an element
       $('div').applyClass('purple');

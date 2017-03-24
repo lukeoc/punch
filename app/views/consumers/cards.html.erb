@@ -8,12 +8,11 @@
       <i class="material-icons">close</i>
     </div>
 
-    <div class="row" ng-repeat="card in cards | filter: cardFilter">
+    <div class="row" ng-repeat="card in cards | filter: cardFilter | orderBy :  'reward_progress' : reverse=true">
       <div class="card-panel hoverable container col s12 red lighten-5" ng-click="showCard(card)">
         <div>{{card.merchant_name}}</div>
         <div>level: {{card.level}}</div>
-        <div>total: ${{card.total}} / ${{card.reward_threshold}}</div>
-        <div class="reward-name red">{{card.reward_name}}</div>
+        <div>total: ${{card.total}} / ${{card.reward_threshold}} ({{card.reward_progress.toFixed(2) * 100 | number : 0}}%)</div>
         <ul class="collapsible" data-collapsible="accordion">
           <li>
             <div class="reward-name red collapsible-header">{{card.reward_name}}</div>

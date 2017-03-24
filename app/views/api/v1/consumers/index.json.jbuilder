@@ -10,6 +10,7 @@ json.array! (@consumers) do |consumer|
     json.merchant_name card.merchant.name
     json.total card.current_total.round(2)
     json.level card.level
+    json.reward_progress card.reward_progress
     json.redeemable card.redeemable
     json.transactions card.transactions.each do |transaction|
       json.id transaction.id
