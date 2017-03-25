@@ -5,4 +5,5 @@ json.array! @cards do |card|
   json.total card.current_total.round(2)
   json.level card.level
   json.reward_progress card.reward_progress
+  json.redeemable card.redeemable
 end

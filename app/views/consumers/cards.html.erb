@@ -1,7 +1,10 @@
 <div class="row" ng-app="app" ng-controller="consumersCtrl" ng-init="setup(<%= @consumer.id %>)">
 
+<!-- google map -->
+    <div id="map"></div>
+
   <!-- SIDE BAR START -->
-  <div class="red lighten-4 col s12 m12 l3" ng-class="functionName(2)" ng-if="showCardList">
+  <div class="red lighten-4 col s12 m12 l3" ng-if="showCardList">
     <div class="input-field">
       <input ng-model="cardFilter" id="search" type="search" required>
       <label class="label-icon" for="search"><i class="material-icons">search</i></label>
@@ -11,8 +14,9 @@
     <div class="row" ng-repeat="card in cards | filter: cardFilter | orderBy :  'reward_progress' : reverse=true">
       <div class="card-panel hoverable container col s12 red lighten-5" ng-click="showCard(card)">
         <div>{{card.merchant_name}}</div>
-        <div>level: {{card.level}}</div>
+        <div>level {{card.level}}</div>
         <div>total: ${{card.total}} / ${{card.reward_threshold}} ({{card.reward_progress.toFixed(2) * 100 | number : 0}}%)</div>
+        <div>{{card.redeemable}}</div>
         <ul class="collapsible" data-collapsible="accordion">
           <li>
             <div class="reward-name red collapsible-header">{{card.reward_name}}</div>
@@ -46,7 +50,9 @@
     <div>level: {{card.level}}</div>
     <div>total: ${{card.total}} / ${{card.reward_threshold}}</div>
     <div>reward: {{card.reward_name}}</div>
-    <table class="striped">
+    <!-- google map -->
+    <div id="map"></div>
+        <table class="striped">
       <thead>
         <tr>
           <th data-field="date">date</th>

@@ -4,11 +4,11 @@ class Card < ApplicationRecord
   has_many :transactions
 
   def current_total
-    total = 0
+    current_total = 0
     transactions.each do |transaction|
-      total += transaction.amount
+      current_total += transaction.amount
     end
-    return total
+    return current_total
   end
 
   def reward_progress

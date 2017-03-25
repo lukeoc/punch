@@ -26,6 +26,14 @@ class ConsumersController < ApplicationController
   def cards
     # @consumer = Consumer.find(params[:id])
     @consumer = current_consumer
+    @consumer.cards.each do |card|
+      card.total = card.current_total
+      if card.total > card.merchant.reward_threshold
+        card.redeemable = true
+      end
+      card.save
+    end
+    @consumer.cards_redeemable?
     render "cards.html.erb"
   end
 
