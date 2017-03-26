@@ -1,10 +1,12 @@
+
+
 <div class="row" ng-app="app" ng-controller="consumersCtrl" ng-init="setup(<%= @consumer.id %>)">
 
 <!-- google map -->
-    <div id="map"></div>
+    <!-- <div id="map"></div> -->
 
   <!-- SIDE BAR START -->
-  <div class="red lighten-4 col s12 m12 l3" ng-if="showCardList">
+  <div class="red lighten-4 col s12 m12 l3">
     <div class="input-field">
       <input ng-model="cardFilter" id="search" type="search" required>
       <label class="label-icon" for="search"><i class="material-icons">search</i></label>
@@ -12,32 +14,40 @@
     </div>
 
     <div class="row" ng-repeat="card in cards | filter: cardFilter | orderBy :  'reward_progress' : reverse=true">
-      <div class="card-panel hoverable container col s12 red lighten-5" ng-click="showCard(card)">
+      <div class="card-panel hoverable container col s12 red lighten-5" ng-click="showCard(card); initSmallMap(card)">
         <div>{{card.merchant_name}}</div>
         <div>level {{card.level}}</div>
         <div>total: ${{card.total}} / ${{card.reward_threshold}} ({{card.reward_progress.toFixed(2) * 100 | number : 0}}%)</div>
+        <div ng-model="reward-progress-percentage">({{card.reward_progress.toFixed(2) * 100 | number : 0}}%</div>
         <div>{{card.redeemable}}</div>
-        <ul class="collapsible" data-collapsible="accordion">
-          <li>
-            <div class="reward-name red collapsible-header">{{card.reward_name}}</div>
-            <div class="collapsible-body">
-             <table class="striped">
-              <thead>
-                <tr>
-                  <th data-field="date">date</th>
-                  <th data-field="amount">amount</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr ng-repeat="transaction in transactions">
-                  <td>{{transaction.created_at | date:'medium'}}</td>
-                  <td>${{transaction.amount | number:2}}</td>
-                </tr>
-              </tbody>
-            </table>
+        <div class="progress">
+              <div class="determinate" ng-style="rewardProgressPercentObj"></div>
           </div>
-        </li>
-      </ul>
+        <div>
+              <ul class="collapsible" data-collapsible="accordion">
+                <li class="expanded-card">
+                  <div class="collapsible-header">{{card.reward_name}}</div>
+                  <div class="collapsible-body">
+                    <!-- google map -->
+                    <div id="mapSmall"></div>
+                   <table class="striped">
+                    <thead>
+                      <tr>
+                        <th data-field="date">date</th>
+                        <th data-field="amount">amount</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="transaction in transactions">
+                        <td>{{transaction.created_at | date:'medium'}}</td>
+                        <td>${{transaction.amount | number:2}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </li>
+            </ul>
+        </div>
     </div>
   </div>
 </div>
@@ -51,7 +61,7 @@
     <div>total: ${{card.total}} / ${{card.reward_threshold}}</div>
     <div>reward: {{card.reward_name}}</div>
     <!-- google map -->
-    <div id="map"></div>
+    <div id="mapLarge"></div>
         <table class="striped">
       <thead>
         <tr>

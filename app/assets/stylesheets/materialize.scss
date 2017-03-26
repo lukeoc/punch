@@ -3123,7 +3123,7 @@ td, th {
 
 .progress {
   position: relative;
-  height: 4px;
+  height: 40px;
   display: block;
   width: 100%;
   background-color: #acece6;
@@ -3134,6 +3134,7 @@ td, th {
 
 .progress .determinate {
   position: absolute;
+  height: 40px;
   top: 0;
   left: 0;
   bottom: 0;
@@ -4502,7 +4503,7 @@ small {
   transition: box-shadow .25s;
   padding: 24px;
   margin: 0.5rem 0 1rem 0;
-  border-radius: 2px;
+  border-radius: 8px;
   background-color: #fff;
 }
 
@@ -5492,8 +5493,8 @@ button.btn-floating {
   min-height: 3rem;
   line-height: 3rem;
   padding: 0 1rem;
-  background-color: #fff;
-  border-bottom: 1px solid #ddd;
+  // background-color: #fff;
+  border-bottom: 0px solid #ddd;
 }
 
 .collapsible-header i {

@@ -7,35 +7,51 @@
       $http.get("/api/v1/consumers/" + consumerId).then(function(response){
         $scope.consumer = response.data;
         $scope.cards = response.data.cards;
-        $scope.showCardList = true;
         $scope.showCardInfo = false;
         // $scope.transactions = response.data.transactions;
       });
-
-      $scope.initMap();
     };
 
-    $scope.initMap = function() {
+    $scope.initSmallMap = function() {
         var uluru = {lat: -25.363, lng: 131.044};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
+        var mapSmall = new google.maps.Map(document.getElementById('mapSmall'), {
+          zoom: 6,
           center: uluru
         });
+
         var marker = new google.maps.Marker({
           position: uluru,
-          map: map
+          map: mapSmall
         });
       };
+
+    $scope.initLargeMap = function() {
+      var uluru = {lat: -25.363, lng: 131.044};
+
+      var mapLarge = new google.maps.Map(document.getElementById('mapLarge'), {
+        zoom: 4,
+        center: uluru
+      });
+
+      var marker = new google.maps.Marker({
+        position: uluru,
+        map: mapLarge
+      });
+    };
 
     $scope.showCard = function(card) {
       $http.get("/api/v1/cards/" + card.id).then(function(response){
         $scope.card = response.data;
         $scope.transactions = response.data.transactions;
         $scope.merchant = response.data.merchant;
-        $scope.showCardInfo = !$scope.showCardInfo;
+        $scope.rewardProgressPercentObj = {
+          "width" : (response.data.reward_progress * 100).toString() + "%"
+        };
+        // $scope.showCardInfo = !$scope.showCardInfo;
+        $scope.showCardInfo = true;
       });
 
-      $scope.initMap();
+      // $scope.initMap();
     };
 
     $scope.orderAttribute = "";
