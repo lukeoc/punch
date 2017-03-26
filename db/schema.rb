@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170321015130) do
+ActiveRecord::Schema.define(version: 20170326181652) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20170321015130) do
     t.boolean  "redeemable"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "lat"
+    t.integer  "lng"
   end
 
   create_table "consumers", force: :cascade do |t|
@@ -43,6 +45,8 @@ ActiveRecord::Schema.define(version: 20170321015130) do
     t.integer  "reward_threshold"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "lng"
+    t.integer  "lat"
   end
 
   create_table "transactions", force: :cascade do |t|

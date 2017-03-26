@@ -46,31 +46,41 @@ bobs_donuts = Merchant.create(
   name: "Bob's Donuts", 
   email: "bobs@bobs.com", 
   reward_name: "free donut", 
-  reward_threshold: 20)
+  reward_threshold: 20),
+  lat:,
+  lng:
 
 cafe_brainwash = Merchant.create(
   name: "Cafe Brainwash",
   email: "brainwash@brainwash.com",
   reward_name: "free coffee",
-  reward_threshold: 25)
+  reward_threshold: 25),
+  lat:,
+  lng:
 
 sightglass = Merchant.create(
   name: "Sightglass",
   email: "sightglass@sightglass.com",
   reward_name: "free coffee",
-  reward_threshold: 75)
+  reward_threshold: 75),
+  lat:,
+  lng:
 
 tacko = Merchant.create(
   name: "Tacko",
   email: "tacko@tacko.com",
   reward_name: "free taco",
-  reward_threshold: 50)
+  reward_threshold: 50),
+  lat:,
+  lng:
 
 monaghans = Merchant.create(
   name: "Monaghans",
   email: "monaghans@monaghans.com",
   reward_name: "free brewski",
-  reward_threshold: 150)
+  reward_threshold: 150),
+  lat:,
+  lng:
 
 merchants = [bobs_donuts, cafe_brainwash, sightglass, tacko, monaghans]
 
@@ -82,7 +92,9 @@ consumers.each do |consumer|
       consumer_id: consumer.id,
       merchant_id: merchants[n].id,
       total: 0,
-      level: rand(1..10))
+      level: rand(1..10)),
+      lat: merchants[n].lat,
+      lng: merchants[n].lng
     n+=1
   end
 end

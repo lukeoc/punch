@@ -14,14 +14,13 @@
     </div>
 
     <div class="row" ng-repeat="card in cards | filter: cardFilter | orderBy :  'reward_progress' : reverse=true">
-      <div class="card-panel hoverable container col s12 red lighten-5" ng-click="showCard(card); initSmallMap(card)">
+      <div class="card-panel hoverable container col s12 red lighten-5" ng-click="showCard(card); initSmallMap(card); initLargeMap(card);">
         <div>{{card.merchant_name}}</div>
         <div>level {{card.level}}</div>
         <div>total: ${{card.total}} / ${{card.reward_threshold}} ({{card.reward_progress.toFixed(2) * 100 | number : 0}}%)</div>
-        <div ng-model="reward-progress-percentage">({{card.reward_progress.toFixed(2) * 100 | number : 0}}%</div>
         <div>{{card.redeemable}}</div>
         <div class="progress">
-              <div class="determinate" ng-style="rewardProgressPercentObj"></div>
+              <div class="determinate" ng-style="rewardProgressPercentObj[cards.indexOf(card)]">{{card.reward_name}}</div>
           </div>
         <div>
               <ul class="collapsible" data-collapsible="accordion">
