@@ -1,3 +1,4 @@
+require 'twilio-ruby'
 class ConsumersController < ApplicationController
   def new
   end
@@ -30,10 +31,17 @@ class ConsumersController < ApplicationController
       card.total = card.current_total
       if card.total > card.merchant.reward_threshold
         card.redeemable = true
+        @client = Twilio::REST::Client.new(ENV["TWILIO_ACCOUNT_SID"], ENV["TWILIO_AUTH_TOKEN"])
+        @client.messages.create(
+          from: ENV["TWILIO_PHONE"],
+          to: "+1#{@consumer.phone}",
+          body: "You've earned yourself a #{card.merchant.reward_name} at #{card.merchant.name}! Now go get you some!"
+        )
       end
       card.save
     end
     @consumer.cards_redeemable?
+
     render "cards.html.erb"
   end
 

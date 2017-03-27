@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'messages/reply'
+
   get "/" => "consumers#cards"
 
   get "/cards/:id" => "cards#show"
@@ -22,5 +24,11 @@ Rails.application.routes.draw do
       get "/consumers/:id" => "consumers#show"
     end
   end
+
+resource :messages do
+  collection do
+    post 'reply'
+  end
+end
 
 end

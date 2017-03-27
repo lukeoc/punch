@@ -58,3 +58,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'plaid', "2.2.0"
 gem 'materialize-sass'
 gem 'material_icons'
+gem 'twilio-ruby'
