@@ -6,27 +6,28 @@
     <!-- <div id="map"></div> -->
 
   <!-- SIDE BAR START -->
-  <div class="red lighten-4 col s12 m12 l3">
+  <div class="lighten-4 col s12 m12 l3">
     <div class="input-field">
       <input ng-model="cardFilter" id="search" type="search" required>
       <label class="label-icon" for="search"><i class="material-icons">search</i></label>
       <i class="material-icons">close</i>
     </div>
 
-    <div class="row" ng-repeat="card in cards | filter: cardFilter | orderBy :  'reward_progress' : reverse=true">
-      <div class="card-panel hoverable container col s12 red lighten-5" ng-click="showCard(card); initSmallMap(card); initLargeMap(card);">
+    <div class="row cardRow" ng-repeat="card in cards | filter: cardFilter | orderBy :  'reward_progress' : reverse=true">
+      <div class="card-panel hoverable container col s12" ng-click="showCard(card); initSmallMap(card); initLargeMap(card);">
         <div>{{card.merchant_name}}</div>
         <div>level {{card.level}}</div>
-        <div>total: ${{card.total}} / ${{card.reward_threshold}} ({{card.reward_progress.toFixed(2) * 100 | number : 0}}%)</div>
-        <div>{{card.redeemable}}</div>
-        <div class="progress">
+       <!--  <div class="progress">
               <div class="determinate" ng-style="rewardProgressPercentObj[cards.indexOf(card)]">{{card.reward_name}}</div>
-          </div>
+          </div> -->
         <div>
               <ul class="collapsible" data-collapsible="accordion">
                 <li class="expanded-card">
-                  <div class="collapsible-header">{{card.reward_name}}</div>
+                  <div class="collapsible-header progress">
+                          <div class="determinate" ng-style="rewardProgressPercentObj[cards.indexOf(card)]">{{card.reward_name}}</div>
+                  </div>
                   <div class="collapsible-body">
+                     <div>total: ${{card.total}} / ${{card.reward_threshold}} ({{card.reward_progress.toFixed(2) * 100 | number : 0}}%)</div>
                     <!-- google map -->
                     <div id="mapSmall"></div>
                    <table class="striped">
@@ -53,12 +54,10 @@
 <!-- SIDE BAR END -->
 
 <!-- MAIN CONTENT START -->
-<div class="hide-on-med-and-down col l9" ng-if="showCardInfo">
+<div class="niceOpenSans hide-on-med-and-down col l9" ng-if="showCardInfo">
   <div class ="container">
-    <div>{{card.merchant_name}}</div>
-    <div>level: {{card.level}}</div>
-    <div>total: ${{card.total}} / ${{card.reward_threshold}}</div>
-    <div>reward: {{card.reward_name}}</div>
+    <div class="largeCardHeader center-align"><h2>{{card.merchant_name}}</h2></div>
+      <div class= "center-align"><h5>level: {{card.level}} ${{card.total}} / ${{card.reward_threshold}}</h5></div>
     <!-- google map -->
     <div id="mapLarge"></div>
         <table class="striped">

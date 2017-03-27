@@ -7,18 +7,12 @@
       $http.get("/api/v1/consumers/" + consumerId).then(function(response){
         $scope.consumer = response.data;
         $scope.cards = response.data.cards;
-        $scope.showCardInfo = false;
+        $scope.showCardInfo = true;
         
         $scope.rewardProgressPercentObj = [];
         for(var i = 0; i < $scope.cards.length; i++) {
           $scope.rewardProgressPercentObj.push({"width" : ($scope.cards[i].reward_progress * 100).toString() + "%"});
         }
-
-        $scope.cardMaps = [];
-        for(var j = 0; j < $scope.cards.length; j++) {
-          $scope.cardMaps.push();
-        }
-
       });
     };
 
@@ -36,38 +30,33 @@
       };
 
     $scope.initLargeMap = function() {
-      var uluru = {lat: -33.8666, lng: 151.1958};
+      var uluru = {lat: 37.791899, lng: -122.421497};
 
       var mapLarge = new google.maps.Map(document.getElementById('mapLarge'), {
         zoom: 15,
         center: uluru
       });
 
-      // Search for Google's office in Australia.
-        var request = {
-          location: mapLarge.getCenter(),
-          radius: '500',
-          query: 'Google Sydney'
-        };
+      var infowindow = new google.maps.InfoWindow();
+      var service = new google.maps.places.PlacesService(mapLarge);
 
-        var service = new google.maps.places.PlacesService(mapLarge);
-          service.textSearch(request, callback);
-          console.log(callback)
-    };
-
-        // Checks that the PlacesServiceStatus is OK, and adds a marker
-        // using the place ID and location from the PlacesService.
-        function callback(results, status) {
-          if (status == google.maps.places.PlacesServiceStatus.OK) {
+        service.getDetails({
+          placeId: 'ChIJj-FdH-uAhYARIp6mvqK3HNM'
+        }, function(place, status) {
+          if (status === google.maps.places.PlacesServiceStatus.OK) {
             var marker = new google.maps.Marker({
               map: mapLarge,
-              place: {
-                placeId: results[0].place_id,
-                location: results[0].geometry.location
-              }
+              position: place.geometry.location
+            });
+            google.maps.event.addListener(marker, 'click', function() {
+              infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+                'Place ID: ' + place.place_id + '<br>' +
+                place.formatted_address + '</div>');
+              infowindow.open(mapLarge, this);
             });
           }
-        }
+        });
+      };
 
     $scope.showCard = function(card) {
       $http.get("/api/v1/cards/" + card.id).then(function(response){
@@ -78,14 +67,11 @@
         //   "width" : (response.data.reward_progress * 100).toString() + "%"
         // }];
         // $scope.showCardInfo = !$scope.showCardInfo;
-        $scope.showCardInfo = true;
+        // $scope.showCardInfo = true;
       });
 
       // $scope.initMap();
     };
-
-    $scope.orderAttribute = "";
-
     
 
   });

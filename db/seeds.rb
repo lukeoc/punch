@@ -48,24 +48,27 @@ bobs_donuts = Merchant.create(
   reward_name: "free donut", 
   reward_threshold: 20,
   active_merchant: true,
+  google_place_id: "ChIJj-FdH-uAhYARIp6mvqK3HNM",
   lat:0,
   lng:0)
 
 cafe_brainwash = Merchant.create(
-  name: "Cafe Brainwash",
+  name: "Brainwash",
   email: "brainwash@brainwash.com",
   reward_name: "free coffee",
   reward_threshold: 25,
   active_merchant: true,
+  google_place_id: "ChIJtRina4KAhYARozx7riiI4Hg",
   lat:0,
   lng:0)
 
 sightglass = Merchant.create(
-  name: "Sightglass",
+  name: "Sightglass Coffee",
   email: "sightglass@sightglass.com",
   reward_name: "free coffee",
   reward_threshold: 75,
   active_merchant: true,
+  google_place_id: "ChIJf-V9OIKAhYARu8bBG2S6RME",
   lat:0,
   lng:0)
 
@@ -75,15 +78,17 @@ tacko = Merchant.create(
   reward_name: "free taco",
   reward_threshold: 50,
   active_merchant: true,
+  google_place_id: "ChIJXfulhtCAhYAR_F6aW1WfXik",
   lat:0,
   lng:0)
 
 monaghans = Merchant.create(
-  name: "Monaghans",
+  name: "Monaghan's",
   email: "monaghans@monaghans.com",
   reward_name: "free brewski",
   reward_threshold: 150,
   active_merchant: true,
+  google_place_id: "ChIJG0-dwNaAhYARS_mE9Eeb6hc",
   lat:0,
   lng:0)
 
@@ -93,15 +98,17 @@ email: "cheese@cheese.com",
 reward_name: "",
 reward_threshold: 60,
 active_merchant: false,
+google_place_id: "ChIJ7eG0KeqAhYARxnkXpdiy2ds",
 lat:0,
 lng:0)
 
 marengo = Merchant.create(
-name: "Marengo",
+name: "Marengo On Union",
 email: "marengo@marengo.com",
 reward_name: "",
 reward_threshold: 100,
 active_merchant: false,
+google_place_id: "ChIJj2vPJNuAhYARfDyiZJCpT1g",
 lat:0,
 lng:0)
 

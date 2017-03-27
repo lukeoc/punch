@@ -7,24 +7,16 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+
     <!-- angular materialize -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.2.2/angular-materialize.min.js"></script>
 
 <!-- google maps scripts -->
-     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgXAyeHvPZsZJ7nqDxDSpSUXSvcrs6Bog&callback=initMap"
-  type="text/javascript"></script>
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgXAyeHvPZsZJ7nqDxDSpSUXSvcrs6Bog&libraries=places"></script>
     
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
-
-  <ul id="dropdown1" class="dropdown-content">
-  <%if current_consumer %>
-  <li><a href="/logout">logout</a></li>
-  <li class="divider"></li>
-  <li><a href="/settings">settings</a></li>
-  <% end %>
-</ul>
 
  <nav>
     <div class="nav-wrapper">
@@ -43,8 +35,17 @@
     </div>
   </nav>
 
+  <ul id="dropdown1" class="dropdown-content">
+  <%if current_consumer %>
+  <li><a href="/logout">logout</a></li>
+  <li class="divider"></li>
+  <li><a href="/settings">settings</a></li>
+  <% end %>
+</ul>
+
 
   <body>
+
     <%= yield %>
   </body>
 </html>

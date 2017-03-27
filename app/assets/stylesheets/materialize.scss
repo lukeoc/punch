@@ -2264,6 +2264,7 @@ dfn {
  * contexts in Firefox 4+, Safari, and Chrome.
  */
 h1 {
+  font-family: 'Indie Flower', cursive;
   font-size: 2em;
   margin: 0.67em 0;
 }
@@ -3126,24 +3127,24 @@ td, th {
   height: 40px;
   display: block;
   width: 100%;
-  background-color: #acece6;
+  background-color: #D1EFB5;
   border-radius: 2px;
-  margin: 0.5rem 0 1rem 0;
+  margin: 0.5rem 0rem 0;
   overflow: hidden;
 }
 
 .progress .determinate {
   position: absolute;
-  height: 40px;
+  height: 42px;
   top: 0;
   left: 0;
   bottom: 0;
-  background-color: #26a69a;
+  background-color: #67AF72;
   transition: width .3s linear;
 }
 
 .progress .indeterminate {
-  background-color: #26a69a;
+  background-color: #67AF72;
 }
 
 .progress .indeterminate:before {
@@ -4004,8 +4005,8 @@ nav ul a span.badge {
 }
 
 nav {
-  color: #fff;
-  background-color: #ee6e73;
+  color: #DE3C4B;
+  background-color: #fff;
   width: 100%;
   height: 56px;
   line-height: 56px;
@@ -4026,7 +4027,7 @@ nav.nav-extended .nav-content {
 }
 
 nav a {
-  color: #fff;
+  color: #DE3C4B;
 }
 
 nav i,
@@ -4064,7 +4065,7 @@ nav .button-collapse i {
 
 nav .brand-logo {
   position: absolute;
-  color: #fff;
+  color: #DE3C4B;
   display: inline-block;
   font-size: 2.1rem;
   padding: 0;
@@ -4132,7 +4133,7 @@ nav ul li.active {
 nav ul a {
   transition: background-color .3s;
   font-size: 1rem;
-  color: #fff;
+  color: #DE3C4B;
   display: block;
   padding: 0 15px;
   cursor: pointer;
@@ -4298,6 +4299,7 @@ h2 {
   font-size: 3.56rem;
   line-height: 110%;
   margin: 1.78rem 0 1.424rem 0;
+  color: #333333;
 }
 
 h3 {
@@ -4501,7 +4503,10 @@ small {
 
 .card-panel {
   transition: box-shadow .25s;
-  padding: 24px;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 5px;
+  padding-left: 0px;
   margin: 0.5rem 0 1rem 0;
   border-radius: 8px;
   background-color: #fff;
@@ -5481,10 +5486,11 @@ button.btn-floating {
 }
 
 .collapsible {
-  border-top: 1px solid #ddd;
-  border-right: 1px solid #ddd;
-  border-left: 1px solid #ddd;
-  margin: 0.5rem 0 1rem 0;
+  border-top: 0px solid #ddd;
+  border-right: 0px solid #ddd;
+  border-left: 0px solid #ddd;
+  margin: 0;
+  border-radius: 8px;
 }
 
 .collapsible-header {
@@ -5492,9 +5498,12 @@ button.btn-floating {
   cursor: pointer;
   min-height: 3rem;
   line-height: 3rem;
-  padding: 0 1rem;
+  padding-top: 0;
+  padding-bottom: 2px;
   // background-color: #fff;
   border-bottom: 0px solid #ddd;
+  margin-bottom: 5px;
+  border-radius: 8px;
 }
 
 .collapsible-header i {
@@ -5505,6 +5514,7 @@ button.btn-floating {
   float: left;
   text-align: center;
   margin-right: 1rem;
+  border-radius: 0px;
 }
 
 .collapsible-body {
