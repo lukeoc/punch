@@ -8,6 +8,7 @@
     json.consumer_id card.consumer_id
     json.merchant_id card.merchant_id
     json.merchant_name card.merchant.name
+    json.active_merchant card.merchant.active_merchant
     json.reward_threshold card.merchant.reward_threshold
     json.reward_name card.merchant.reward_name
     json.image card.merchant.image

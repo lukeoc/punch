@@ -13,6 +13,8 @@
         for(var i = 0; i < $scope.cards.length; i++) {
           $scope.rewardProgressPercentObj.push({"width" : ($scope.cards[i].reward_progress * 100).toString() + "%"});
         }
+
+        
       });
 
 // setup bobs donuts first
