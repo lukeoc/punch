@@ -14,22 +14,53 @@
           $scope.rewardProgressPercentObj.push({"width" : ($scope.cards[i].reward_progress * 100).toString() + "%"});
         }
       });
+
+// setup bobs donuts first
+      $http.get("/api/v1/cards/1").then(function(response){
+        $scope.card = response.data;
+        $scope.transactions = response.data.transactions;
+        $scope.merchant = response.data.merchant;
+      });
+
     };
 
-    $scope.initSmallMap = function() {
-        var uluru = {lat: -25.363, lng: 131.044};
+    $scope.initSmallMap = function(card) {
+      $http.get("/api/v1/cards/" + card.id).then(function(response){
+        $scope.mapCard = response.data;
+        $scope.google_place_id = response.data.google_place_id;
+      });
+        var uluru = {lat: 37.791899, lng: -122.421497};
         var mapSmall = new google.maps.Map(document.getElementById('mapSmall'), {
-          zoom: 6,
+          zoom: 15,
           center: uluru
         });
+        
+        var infowindow = new google.maps.InfoWindow();
+        var service = new google.maps.places.PlacesService(mapSmall);
 
-        var marker = new google.maps.Marker({
-          position: uluru,
-          map: mapSmall
-        });
+          service.getDetails({
+            placeId: $scope.google_place_id
+          }, function(place, status) {
+            if (status === google.maps.places.PlacesServiceStatus.OK) {
+              var marker = new google.maps.Marker({
+                map: mapSmall,
+                position: place.geometry.location
+              });
+              google.maps.event.addListener(marker, 'click', function() {
+                infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+                  'Place ID: ' + place.place_id + '<br>' +
+                  place.formatted_address + '</div>');
+                infowindow.open(mapSmall, this);
+              });
+            }
+          });
       };
 
-    $scope.initLargeMap = function() {
+    $scope.initLargeMap = function(card) {
+      $http.get("/api/v1/cards/" + card.id).then(function(response){
+        $scope.google_place_id = response.data.google_place_id;
+      });
+      // console.log(google_place_id);
       var uluru = {lat: 37.791899, lng: -122.421497};
 
       var mapLarge = new google.maps.Map(document.getElementById('mapLarge'), {
@@ -41,7 +72,7 @@
       var service = new google.maps.places.PlacesService(mapLarge);
 
         service.getDetails({
-          placeId: 'ChIJj-FdH-uAhYARIp6mvqK3HNM'
+          placeId: $scope.google_place_id
         }, function(place, status) {
           if (status === google.maps.places.PlacesServiceStatus.OK) {
             var marker = new google.maps.Marker({
@@ -63,14 +94,7 @@
         $scope.card = response.data;
         $scope.transactions = response.data.transactions;
         $scope.merchant = response.data.merchant;
-        // $scope.rewardProgressPercentObj = [{
-        //   "width" : (response.data.reward_progress * 100).toString() + "%"
-        // }];
-        // $scope.showCardInfo = !$scope.showCardInfo;
-        // $scope.showCardInfo = true;
       });
-
-      // $scope.initMap();
     };
     
 

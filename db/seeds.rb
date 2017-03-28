@@ -48,9 +48,10 @@ bobs_donuts = Merchant.create(
   reward_name: "free donut", 
   reward_threshold: 20,
   active_merchant: true,
+  image: "http://citytechautobody.com/wp-content/uploads/2012/05/Bobs_BC21.jpg",
   google_place_id: "ChIJj-FdH-uAhYARIp6mvqK3HNM",
-  lat:0,
-  lng:0)
+  lat:37.791917,
+  lng:0-122.421266)
 
 cafe_brainwash = Merchant.create(
   name: "Brainwash",
@@ -58,9 +59,10 @@ cafe_brainwash = Merchant.create(
   reward_name: "free coffee",
   reward_threshold: 25,
   active_merchant: true,
+  image: "http://www.brainwash.com/images/BrainWash-logo.jpg",
   google_place_id: "ChIJtRina4KAhYARozx7riiI4Hg",
-  lat:0,
-  lng:0)
+  lat:37.776456,
+  lng:-122.408931)
 
 sightglass = Merchant.create(
   name: "Sightglass Coffee",
@@ -68,9 +70,10 @@ sightglass = Merchant.create(
   reward_name: "free coffee",
   reward_threshold: 75,
   active_merchant: true,
+  image: "http://etc-nyc.com/wp-content/uploads/2014/07/Sightglass-logo.jpg",
   google_place_id: "ChIJf-V9OIKAhYARu8bBG2S6RME",
-  lat:0,
-  lng:0)
+  lat:37.776456,
+  lng:-122.408931)
 
 tacko = Merchant.create(
   name: "Tacko",
@@ -78,9 +81,10 @@ tacko = Merchant.create(
   reward_name: "free taco",
   reward_threshold: 50,
   active_merchant: true,
+  image: "https://d13yacurqjgara.cloudfront.net/users/37217/screenshots/235145/_fs_dbl_tacosliders.png",
   google_place_id: "ChIJXfulhtCAhYAR_F6aW1WfXik",
-  lat:0,
-  lng:0)
+  lat:37.798297,
+  lng:-122.436042)
 
 monaghans = Merchant.create(
   name: "Monaghan's",
@@ -88,9 +92,10 @@ monaghans = Merchant.create(
   reward_name: "free brewski",
   reward_threshold: 150,
   active_merchant: true,
+  image: "http://www.monaghans.ca/wp-content/uploads/2015/06/monaghans-logo.png",
   google_place_id: "ChIJG0-dwNaAhYARS_mE9Eeb6hc",
-  lat:0,
-  lng:0)
+  lat:37.800018,
+  lng:-122.439851)
 
 cheese_plus = Merchant.create(
 name: "Cheese Plus",
@@ -98,9 +103,10 @@ email: "cheese@cheese.com",
 reward_name: "",
 reward_threshold: 60,
 active_merchant: false,
+image: "https://pbs.twimg.com/profile_images/545731925596336130/DYog2V-1.jpeg",
 google_place_id: "ChIJ7eG0KeqAhYARxnkXpdiy2ds",
-lat:0,
-lng:0)
+lat:37.795128,
+lng:-122.422005)
 
 marengo = Merchant.create(
 name: "Marengo On Union",
@@ -108,9 +114,10 @@ email: "marengo@marengo.com",
 reward_name: "",
 reward_threshold: 100,
 active_merchant: false,
+image: "https://images.freecreatives.com/wp-content/uploads/2016/03/Wine-Bottle-Logo-For-Free.jpg",
 google_place_id: "ChIJj2vPJNuAhYARfDyiZJCpT1g",
-lat:0,
-lng:0)
+lat:37.797707,
+lng:-122.432141)
 
 merchants = [bobs_donuts, cafe_brainwash, sightglass, tacko, monaghans, cheese_plus, marengo]
 

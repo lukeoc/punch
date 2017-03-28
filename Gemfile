@@ -59,3 +59,4 @@ gem 'plaid', "2.2.0"
 gem 'materialize-sass'
 gem 'material_icons'
 gem 'twilio-ruby'
+gem "paperclip", "~> 4.3"

@@ -1,6 +1,4 @@
-
-
-<div class="row" ng-app="app" ng-controller="consumersCtrl" ng-init="setup(<%= @consumer.id %>)">
+<div class="row" ng-app="app" ng-controller="consumersCtrl" ng-init="setup(<%= @consumer.id %>); initiLargemap(card)">
 
 <!-- google map -->
     <!-- <div id="map"></div> -->
@@ -17,9 +15,7 @@
       <div class="card-panel hoverable container col s12" ng-click="showCard(card); initSmallMap(card); initLargeMap(card);">
         <div>{{card.merchant_name}}</div>
         <div>level {{card.level}}</div>
-       <!--  <div class="progress">
-              <div class="determinate" ng-style="rewardProgressPercentObj[cards.indexOf(card)]">{{card.reward_name}}</div>
-          </div> -->
+        <div>${{card.total}} / ${{card.reward_threshold}}</div>
         <div>
               <ul class="collapsible" data-collapsible="accordion">
                 <li class="expanded-card">
