@@ -18,7 +18,7 @@
         height: 400px;
       }
 
-.expanded-card {
+.expanded-card-details {
   width: 100%;
   border-radius: 8px;
 }
@@ -34,8 +34,12 @@ html {
   padding-left: 0px;
 }
 
-#largeCardHeader {
-  font-family: "Indie Flower" !important;
+.largeCardHeader {
+  height: 50px;
+}
+
+.smallCardHeader {
+  height: 20px;
 }
 
 #niceOpenSans {
@@ -46,3 +50,24 @@ html {
 // h1,h2,h3,h4 {
 //   font-family: 'Indie Flower', cursive;
 // }
+
+.cardLogoLarge {
+  border: 2px;
+}
+
+.cardLogoSmall {
+  border: 2px;
+}
+
+.cardTitleRow {
+  padding-top: 20px;
+}
+
+.cardTitleRowSmall {
+  padding-top: 5px;
+}
+
+.mainContent {
+  position: fixed;
+  float: right;
+}

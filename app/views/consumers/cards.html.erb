@@ -13,12 +13,14 @@
 
     <div class="row cardRow" ng-repeat="card in cards | filter: cardFilter | orderBy :  'reward_progress' : reverse=true">
       <div class="card-panel hoverable container col s12" ng-click="showCard(card); initSmallMap(card); initLargeMap(card);">
-        <div>{{card.merchant_name}}</div>
+        <div class="cardTitleRowSmall row">
+          <div class="smallCardHeader center-align"><img class="cardLogoSmall circle responsive-img col l4" ng-src="{{card.image}}" alt=""><h5 class="col l8">{{card.merchant_name}}</h5></div>
+        </div>
         <div>level {{card.level}}</div>
         <div>${{card.total}} / ${{card.reward_threshold}}</div>
         <div>
               <ul class="collapsible" data-collapsible="accordion">
-                <li class="expanded-card">
+                <li class="expanded-card-details">
                   <div class="collapsible-header progress">
                           <div class="determinate" ng-style="rewardProgressPercentObj[cards.indexOf(card)]">{{card.reward_name}}</div>
                   </div>
@@ -50,9 +52,12 @@
 <!-- SIDE BAR END -->
 
 <!-- MAIN CONTENT START -->
-<div class="niceOpenSans hide-on-med-and-down col l9" ng-if="showCardInfo">
+<div class="mainContent card-panel hide-on-med-and-down col l9" ng-if="showCardInfo">
   <div class ="container">
-    <div class="largeCardHeader center-align"><h2>{{card.merchant_name}}</h2></div>
+    <div class="cardTitleRow row">
+      <div class="largeCardHeader center-align"><img class="cardLogoLarge circle responsive-img col l4" ng-src="{{merchantLogo}}" alt=""><h2 class="col l8">{{card.merchant_name}}</h2></div>
+    </div>
+
       <div class= "center-align"><h5>level: {{card.level}} ${{card.total}} / ${{card.reward_threshold}}</h5></div>
     <!-- google map -->
     <div id="mapLarge"></div>

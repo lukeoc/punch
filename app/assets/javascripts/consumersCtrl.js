@@ -20,6 +20,7 @@
         $scope.card = response.data;
         $scope.transactions = response.data.transactions;
         $scope.merchant = response.data.merchant;
+        $scope.merchantLogo = response.data.image;
       });
 
     };
@@ -94,6 +95,7 @@
         $scope.card = response.data;
         $scope.transactions = response.data.transactions;
         $scope.merchant = response.data.merchant;
+        $scope.merchantLogo = response.data.image;
       });
     };
     
