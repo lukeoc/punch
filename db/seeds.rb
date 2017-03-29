@@ -114,7 +114,7 @@ email: "marengo@marengo.com",
 reward_name: "",
 reward_threshold: 100,
 active_merchant: false,
-image: "https://images.freecreatives.com/wp-content/uploads/2016/03/Wine-Bottle-Logo-For-Free.jpg",
+image: "https://cdn3.iconfinder.com/data/icons/badger-s-christmas/300/wine-bottle-512.png",
 google_place_id: "ChIJj2vPJNuAhYARfDyiZJCpT1g",
 lat:37.797707,
 lng:-122.432141)

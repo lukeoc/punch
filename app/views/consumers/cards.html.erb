@@ -1,3 +1,28 @@
+ <nav>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo"><i class="material-icons">free_breakfast</i>punch</a>
+      <ul class="right hide-on-med-and-down">
+        <li>
+          <a class="dropdown-button" href="#!" data-activates="dropdown1">
+            <%if current_consumer %>
+            <%= current_consumer.name %>
+            <% else %>
+            <%= "signup" %>
+            <% end %>
+          <i class="material-icons right">arrow_drop_down</i></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <ul id="dropdown1" class="dropdown-content">
+  <%if current_consumer %>
+  <li><a href="/logout">logout</a></li>
+  <li class="divider"></li>
+  <li><a href="/settings">settings</a></li>
+  <% end %>
+</ul>
+
 <div class="row" ng-app="app" ng-controller="consumersCtrl" ng-init="setup(<%= @consumer.id %>); initiLargemap(card)">
 
 <!-- google map -->
@@ -14,10 +39,8 @@
     <div class="row cardRow" ng-repeat="card in cards | filter: cardFilter | orderBy :  'reward_progress' : reverse=true">
       <div class="card-panel hoverable container col s12" ng-click="showCard(card); initSmallMap(card); initLargeMap(card);">
         <div class="cardTitleRowSmall row">
-          <div class="smallCardHeader center-align"><img class="cardLogoSmall circle responsive-img col l4" ng-src="{{card.image}}" alt=""><h5 class="col l8">{{card.merchant_name}}</h5></div>
+          <div class="smallCardHeader cardLevel center-align"><img class="cardLogoSmall responsive-img col l4" ng-src="{{card.image}}" alt=""><h5 class="col l8">{{card.merchant_name}}</h5></div>
         </div>
-        <div>level {{card.level}}</div>
-        <div>${{card.total}} / ${{card.reward_threshold}}</div>
         <div ng-if="!card.active_merchant"> <a class="requestBtn center-align waves-effect waves-green btn-flat">request</a></div>
         <div>
               <ul class="collapsible" data-collapsible="accordion" ng-if="card.active_merchant">
@@ -26,17 +49,19 @@
                           <div class="determinate" ng-style="rewardProgressPercentObj[cards.indexOf(card)]">{{card.reward_name}}</div>
                   </div>
                   <div class="collapsible-body">
+                    <div>level {{card.level}}</div>
                      <div>total: ${{card.total}} / ${{card.reward_threshold}} ({{card.reward_progress.toFixed(2) * 100 | number : 0}}%)</div>
                     <!-- google map -->
-                    <div id="mapSmall"></div>
-                   <table class="striped">
-                    <thead>
+                    <div ng-attr-id="mapSmall + cards.indexOf(card)"></div>
+                    <div id="mapSmall">hellomap</div>
+                   <table class="transactionsTable striped">
+                    <thead class="transactionsTable">
                       <tr>
                         <th data-field="date">date</th>
                         <th data-field="amount">amount</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="transactionsTable">
                       <tr ng-repeat="transaction in transactions">
                         <td>{{transaction.created_at | date:'medium'}}</td>
                         <td>${{transaction.amount | number:2}}</td>
@@ -53,15 +78,16 @@
 <!-- SIDE BAR END -->
 
 <!-- MAIN CONTENT START -->
-<div class="mainContent card-panel hide-on-med-and-down col l9" ng-if="showCardInfo">
+<div id="sticky" class="mainContent card-panel hide-on-med-and-down col l9" ng-if="showCardInfo">
   <div class ="container">
     <div class="cardTitleRow row">
-      <div class="largeCardHeader center-align"><img class="cardLogoLarge circle responsive-img col l4" ng-src="{{merchantLogo}}" alt=""><h2 class="col l8">{{card.merchant_name}}</h2></div>
+      <div class="largeCardHeader center-align"><img class="cardLogoLarge responsive-img col l4" ng-src="{{merchantLogo}}" alt=""><h2 class="col l8">{{card.merchant_name}}</h2></div>
+       <div class= "center-align cardLevel"><h5>level: {{card.level}} ${{card.total}} / ${{card.reward_threshold}}</h5></div>
     </div>
-
-      <div class= "center-align"><h5>level: {{card.level}} ${{card.total}} / ${{card.reward_threshold}}</h5></div>
     <!-- google map -->
     <div id="mapLarge"></div>
+    <br>
+    <div class="transactionsTable">
         <table class="striped">
       <thead>
         <tr>
@@ -77,6 +103,7 @@
         </tr>
       </tbody>
     </table>
+    </div>
   </div>
 </div>
 <!-- MAIN CONTENT END -->

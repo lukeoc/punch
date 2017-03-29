@@ -12,6 +12,9 @@
         $scope.rewardProgressPercentObj = [];
         for(var i = 0; i < $scope.cards.length; i++) {
           $scope.rewardProgressPercentObj.push({"width" : ($scope.cards[i].reward_progress * 100).toString() + "%"});
+
+          // last ditch google maps attempt
+          
         }
 
 
@@ -31,8 +34,10 @@
       $http.get("/api/v1/cards/" + card.id).then(function(response){
         $scope.mapCard = response.data;
         $scope.google_place_id = response.data.google_place_id;
+        $scope.smallMapLat = response.data.lat;
+        $scope.smallMapLng = response.data.lng;
       });
-        var uluru = {lat: 37.791899, lng: -122.421497};
+        var uluru = {lat: Number($scope.smallMapLat), lng: Number($scope.smallMapLng)};
         var mapSmall = new google.maps.Map(document.getElementById('mapSmall'), {
           zoom: 15,
           center: uluru

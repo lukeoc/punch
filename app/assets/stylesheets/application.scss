@@ -36,10 +36,12 @@ html {
 
 .largeCardHeader {
   height: 50px;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .smallCardHeader {
   height: 20px;
+  font-family: 'Quicksand', sans-serif;
 }
 
 #niceOpenSans {
@@ -53,10 +55,17 @@ html {
 
 .cardLogoLarge {
   border: 2px;
+  width: 300px;
+  border-radius: 8px;
 }
 
 .cardLogoSmall {
   border: 2px;
+  width: 100px;
+  border-radius: 50px;
+  border: 3px;
+  border-style: solid;
+  border-color: #F1F2EB;
 }
 
 .cardTitleRow {
@@ -70,4 +79,42 @@ html {
 .requestBtn {
   width: 100%;
   background-color: #578CC1;
+  border-radius: 8px;
+  margin: 4px;
+}
+
+.splashPageBanner {
+  height: 1000px;
+  background-color: #DE3C4B;
+  background-image: url("https://unsplash.com/photos/mQ4Ty8VmnPk");
+  }
+
+.splashStack {
+  height: 500px;
+}
+
+.splashTitle {
+  width: 100%;
+  font-family: 'Indie Flower', cursive;
+  color: #fff;
+}
+
+#mapLarge {
+  border-radius: 3px;
+  border: 3px;
+  border-style: solid;
+  border-color: #F1F2EB;
+}
+
+.transactionsTable {
+  border-radius: 3px;
+  border: 3px;
+  border-style: solid;
+  border-color: #F1F2EB;
+}
+
+.cardLevel {
+  color: #585856;
+  // font-family: 'Quicksand', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
 }

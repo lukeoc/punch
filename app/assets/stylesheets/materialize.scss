@@ -2528,6 +2528,7 @@ optgroup {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+  color: #585856;
 }
 
 td,
@@ -2888,6 +2889,7 @@ footer.page-footer .footer-copyright {
 
 table, th, td {
   border: none;
+  font-family: 'Titillium Web', sans-serif;
 }
 
 table {
@@ -2897,11 +2899,11 @@ table {
 
 table.bordered > thead > tr,
 table.bordered > tbody > tr {
-  border-bottom: 1px solid #d0d0d0;
+  border-bottom: 1px solid #F1F2EB;
 }
 
 table.striped > tbody > tr:nth-child(odd) {
-  background-color: #f2f2f2;
+  background-color: #F1F2EB;
 }
 
 table.striped > tbody > tr > td {
@@ -2913,7 +2915,7 @@ table.highlight > tbody > tr {
 }
 
 table.highlight > tbody > tr:hover {
-  background-color: #f2f2f2;
+  background-color: #F1F2EB;
 }
 
 table.centered thead tr th, table.centered tbody tr td {
@@ -2988,7 +2990,7 @@ td, th {
   }
   table.responsive-table thead {
     border: 0;
-    border-right: 1px solid #d0d0d0;
+    border-right: 1px solid #F1F2EB;
   }
   table.responsive-table.bordered th {
     border-bottom: 0;
@@ -3003,7 +3005,7 @@ td, th {
     border: 0;
   }
   table.responsive-table.bordered tbody tr {
-    border-right: 1px solid #d0d0d0;
+    border-right: 1px solid #F1F2EB;
   }
 }
 
@@ -4994,7 +4996,7 @@ small {
 .btn, .btn-large {
   text-decoration: none;
   color: #fff;
-  background-color: #26a69a;
+  background-color: #67AF72;
   text-align: center;
   letter-spacing: .5px;
   transition: .2s ease-out;
@@ -5002,7 +5004,7 @@ small {
 }
 
 .btn:hover, .btn-large:hover {
-  background-color: #2bbbad;
+  background-color: #D1EFB5;
 }
 
 .btn-floating {
@@ -5763,7 +5765,7 @@ input[type=search],
 textarea.materialize-textarea {
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid #9e9e9e;
+  border-bottom: 1px solid #fff;
   border-radius: 0;
   outline: none;
   height: 3rem;
@@ -5802,7 +5804,7 @@ input[type=search][readonly="readonly"],
 textarea.materialize-textarea:disabled,
 textarea.materialize-textarea[readonly="readonly"] {
   color: rgba(0, 0, 0, 0.26);
-  border-bottom: 1px dotted rgba(0, 0, 0, 0.26);
+  border-bottom: 1px dotted rgba(255, 255, 255, 0.26);
 }
 
 input:not([type]):disabled + label,
@@ -5847,8 +5849,8 @@ input[type=tel]:focus:not([readonly]),
 input[type=number]:focus:not([readonly]),
 input[type=search]:focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly]) {
-  border-bottom: 1px solid #26a69a;
-  box-shadow: 0 1px 0 0 #26a69a;
+  border-bottom: 1px solid #67AF72;
+  box-shadow: 0 1px 0 0 #67AF72;
 }
 
 input:not([type]):focus:not([readonly]) + label,
