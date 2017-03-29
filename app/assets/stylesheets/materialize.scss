@@ -3144,6 +3144,7 @@ td, th {
   bottom: 0;
   background-color: #67AF72;
   transition: width .3s linear;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .progress .indeterminate {
@@ -4990,7 +4991,8 @@ small {
 
 .btn:focus, .btn-large:focus,
 .btn-floating:focus {
-  background-color: #1d7d74;
+  // background-color: #1d7d74;
+  background-color: #D1EFB5;
 }
 
 .btn, .btn-large {
@@ -5170,7 +5172,7 @@ button.btn-floating {
   z-index: -1;
   width: 40px;
   height: 40px;
-  background-color: #26a69a;
+  background-color: #D1EFB5;
   border-radius: 50%;
   -webkit-transform: scale(0);
           transform: scale(0);
