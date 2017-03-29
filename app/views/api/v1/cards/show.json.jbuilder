@@ -6,6 +6,8 @@ json.reward_threshold @card.merchant.reward_threshold
 json.reward_name @card.merchant.reward_name
 json.image @card.merchant.image
 json.google_place_id @card.merchant.google_place_id
+json.lat @card.merchant.lat
+json.lng @card.merchant.lng
 json.active_merchant @card.merchant.active_merchant
 json.total number_with_precision(@card.current_total.round(2), precision: 2)
 json.level @card.level

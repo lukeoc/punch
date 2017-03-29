@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170328041152) do
+ActiveRecord::Schema.define(version: 20170329011345) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,8 +45,8 @@ ActiveRecord::Schema.define(version: 20170328041152) do
     t.integer  "reward_threshold"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-    t.integer  "lng"
-    t.integer  "lat"
+    t.string   "lng"
+    t.string   "lat"
     t.boolean  "active_merchant"
     t.string   "google_place_id"
     t.string   "image"

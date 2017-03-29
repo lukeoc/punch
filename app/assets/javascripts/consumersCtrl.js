@@ -14,7 +14,7 @@
           $scope.rewardProgressPercentObj.push({"width" : ($scope.cards[i].reward_progress * 100).toString() + "%"});
         }
 
-        
+
       });
 
 // setup bobs donuts first
@@ -62,9 +62,12 @@
     $scope.initLargeMap = function(card) {
       $http.get("/api/v1/cards/" + card.id).then(function(response){
         $scope.google_place_id = response.data.google_place_id;
+        $scope.largeMapLat = response.data.lat;
+        $scope.largeMapLng = response.data.lng;
+        console.log($scope.largeMapLat);
       });
       // console.log(google_place_id);
-      var uluru = {lat: 37.791899, lng: -122.421497};
+      var uluru = {lat: Number($scope.largeMapLat), lng: Number($scope.largeMapLng)};
 
       var mapLarge = new google.maps.Map(document.getElementById('mapLarge'), {
         zoom: 15,
