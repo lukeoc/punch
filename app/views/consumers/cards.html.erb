@@ -49,11 +49,14 @@
                           <div class="determinate" ng-style="rewardProgressPercentObj[cards.indexOf(card)]">  {{card.reward_name}}</div>
                   </div>
                   <div class="collapsible-body">
-                    <div>level {{card.level}}</div>
-                     <div>total: ${{card.total}} / ${{card.reward_threshold}} ({{card.reward_progress.toFixed(2) * 100 | number : 0}}%)</div>
+                    <div class="smallCardHeader">
+                      <p class="center-align">
+                        level {{card.level}} | ${{card.total}} / ${{card.reward_threshold}} ({{card.reward_progress.toFixed(2) * 100 | number : 0}}%)
+                      </p>
+                    </div>
                     <!-- google map -->
                     <div ng-attr-id="mapSmall + cards.indexOf(card)"></div>
-                    <div id="mapSmall">hellomap</div>
+                    <div ng-if="firstMap(cards.indexOf(card))" id="mapSmall" class="transactionsTable">hellomap</div>
                    <table class="transactionsTable striped">
                     <thead class="transactionsTable">
                       <tr>

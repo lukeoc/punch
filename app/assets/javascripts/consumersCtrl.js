@@ -28,6 +28,12 @@
         $scope.merchantLogo = response.data.image;
       });
 
+
+        $scope.firstMap = function(index) {
+          if (index == 1) {
+            return true;
+          }
+        };
     };
 
     $scope.initSmallMap = function(card) {
